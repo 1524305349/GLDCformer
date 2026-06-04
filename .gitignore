@@ -1,0 +1,12 @@
+dataset/
+checkpoints/
+logs/
+results/
+test_results/
+__pycache__/
+.idea/
+.vscode/
+*.csv
+*.txt
+*.pth
+*.npy
