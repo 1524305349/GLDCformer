@@ -10,14 +10,12 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='CycleFormer')
 
-    # 基本配置
     parser.add_argument('--is_training', type=int, required=True, default=1, help='status')
     parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
     parser.add_argument('--model', type=str, required=True, default='CycleFormer', help='model name')
     parser.add_argument('--exp_name', type=str, required=True, default='init', help='experiment name')
     parser.add_argument('--class_strategy', type=str, default='projection', help='projection/average/cls_token')
 
-    # 数据集
     parser.add_argument('--data', type=str, required=True, default='ETTh1', help='dataset type')
     parser.add_argument('--root_path', type=str, default='./dataset/ETT-small/', help='root path')
     parser.add_argument('--data_path', type=str, default='ETTh1.csv', help='data file')
@@ -26,13 +24,12 @@ if __name__ == '__main__':
     parser.add_argument('--freq', type=str, default='h', help='freq for time features')
     parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='location of model checkpoints')
 
-    # 预测任务
     parser.add_argument('--seq_len', type=int, default=96, help='input sequence length')
     parser.add_argument('--label_len', type=int, default=48, help='start token length')
     parser.add_argument('--pred_len', type=int, default=96, help='prediction sequence length')
     parser.add_argument('--inverse', action='store_true', help='inverse output data', default=False)
 
-    # 模型参数
+
     parser.add_argument('--enc_in', type=int, default=7, help='encoder input size')
     parser.add_argument('--dec_in', type=int, default=7, help='decoder input size')
     parser.add_argument('--c_out', type=int, default=7, help='output size')
@@ -58,7 +55,6 @@ if __name__ == '__main__':
     parser.add_argument('--seed', type=int, default=2024, help='random seed')
     parser.add_argument('--bias', type=float, default=1.0, help='bias')
 
-    # 优化
     parser.add_argument('--num_workers', type=int, default=4, help='data loader num workers')
     parser.add_argument('--itr', type=int, default=1, help='experiments times')
     parser.add_argument('--train_epochs', type=int, default=20, help='train epochs')
