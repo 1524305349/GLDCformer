@@ -22,9 +22,6 @@ def adjust_learning_rate(optimizer, epoch, args, scheduler):
     elif args.lradj == 'type3':
         lr_adjust = {epoch: args.learning_rate if epoch < 3 else args.learning_rate * (0.8 ** ((epoch - 3) // 1))}
     elif args.lradj == 'type4':
-        # epoch=1 时, power=0, lr = initial_lr * 1
-        # epoch=2 时, power=1, lr = initial_lr * 0.8
-        # epoch=3 时, power=2, lr = initial_lr * 0.64
         lr_adjust = {epoch: args.learning_rate * (0.8 ** (epoch - 1))}
     elif args.lradj == "type5":
         lr_adjust = {epoch: args.learning_rate / 2 * (1 + math.cos(epoch / args.train_epochs * math.pi))}
