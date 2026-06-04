@@ -162,14 +162,12 @@ def print_args(args):
     printed_keys = set()
 
     for group_name, keys in groups.items():
-        # 过滤出 args 中实际存在的 key
         valid_keys = [k for k in keys if k in all_args]
         if not valid_keys:
             continue
 
-        print(f"\n [ {group_name} ]")  # 青色加粗标题
+        print(f"\n [ {group_name} ]")
 
-        # 双列打印逻辑
         for i in range(0, len(valid_keys), 2):
             key1 = valid_keys[i]
             val1 = all_args[key1]
@@ -185,7 +183,6 @@ def print_args(args):
 
             print(row_str)
 
-    # 打印未归类的其他参数
     remaining_keys = [k for k in all_args if k not in printed_keys]
     if remaining_keys:
         print(f"\n[ Others ]")
